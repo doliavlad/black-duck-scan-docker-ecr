@@ -111,6 +111,7 @@ function update_self_and_invoke() {
   if [ $? -ne 0 ]; then
     echo "Using installed scan.docker.sh"
     cp "${DOCKER_SCAN_SHELL_SCRIPT}" "${EXECUTABLE_SHELL_SCRIPT}"
+	chmod 777 "${EXECUTABLE_SHELL_SCRIPT}"
   fi
   exec "${EXECUTABLE_SHELL_SCRIPT}" "$@"
 }
