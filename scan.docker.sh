@@ -142,11 +142,7 @@ function perform_validations() {
   if [ $opt_count -lt 3 ]; then
     "All required options not present!"
     usage
-  fi
-  if [ -z "$(which docker)" ]; then
-    echo "Docker is required to be in your PATH and it cannot be found."
-    exit 2
-  fi
+  fi  
   # there IS a docker, now validate that this user can execute it
   valid_docker=$(docker info 2>&1)
   valid_docker=${valid_docker%%*permission denied*}
